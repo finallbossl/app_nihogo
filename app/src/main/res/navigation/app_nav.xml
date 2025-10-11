@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.nihongomaster.ui.home.HomeFragment"
+        android:label="Home">
+        <action
+            android:id="@+id/action_home_to_vocabularyList"
+            app:destination="@id/vocabularyListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vocabularyListFragment"
+        android:name="com.example.nihongomaster.ui.vocab.VocabularyListFragment"
+        android:label="Vocabulary Learning">
+        <argument
+            android:name="entryTitle"
+            app:argType="string"
+            android:defaultValue="Vocabulary Learning" />
+        <action
+            android:id="@+id/action_vocabularyList_to_session"
+            app:destination="@id/vocabSessionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/vocabSessionFragment"
+        android:name="com.example.nihongomaster.ui.vocab.VocabSessionFragment"
+        android:label="Vocabulary Learning">
+        <argument
+            android:name="categoryId"
+            app:argType="string" />
+    </fragment>
+</navigation>

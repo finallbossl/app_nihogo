@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surfaceBg">
+
+    <!-- Header cố định -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/surfaceHeader"
+        android:elevation="4dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Nihongo Master"
+            app:titleTextColor="@color/teal_200"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:titleCentered="false"
+            app:menu="@menu/menu_home_top"
+            app:contentInsetStart="16dp"
+            app:contentInsetEnd="16dp"
+            android:background="@color/surfaceHeader"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Nội dung cuộn -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false"
+        android:overScrollMode="never" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

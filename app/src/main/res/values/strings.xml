@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Nihongo Master</string>
+    <string name="home">Home</string>
+    <string name="vocabulary">Vocabulary</string>
+    <string name="reading">Reading</string>
+    <string name="listening">Listening</string>
+    <string name="profile">Profile</string>
+
+</resources>

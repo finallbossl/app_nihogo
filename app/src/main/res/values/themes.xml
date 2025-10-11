@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base app theme -->
+    <style name="Base.Theme.NihongoMaster" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Màu thương hiệu -->
+        <item name="colorPrimary">@color/brandPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/surfaceBg</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <!-- Theme chính -->
+    <style name="Theme.NihongoMaster" parent="Base.Theme.NihongoMaster" />
+</resources>

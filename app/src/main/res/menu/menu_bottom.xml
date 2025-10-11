@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="Home"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/vocabularyListFragment"
+        android:title="Vocabulary"
+        android:icon="@drawable/ic_book" />
+
+    <item
+        android:id="@+id/reading"
+        android:title="Reading"
+        android:icon="@drawable/ic_article" />
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/ic_user" />
+</menu>
