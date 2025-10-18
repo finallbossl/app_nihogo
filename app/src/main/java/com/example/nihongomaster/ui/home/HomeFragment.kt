@@ -14,12 +14,19 @@ import androidx.navigation.fragment.findNavController
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private val vm: HomeViewModel by viewModels()
+    private val vm: com.example.nihongomaster.model.viewmodel.HomeViewModel by viewModels()
     private val adapter = HomeAdapter { cardId ->
-        when(cardId){
+        when (cardId) {
             "vocab" -> findNavController().navigate(R.id.action_home_to_vocabularyList)
+            "reading" -> findNavController().navigate(R.id.action_home_to_readingList)
+            "listening" -> findNavController().navigate(R.id.action_home_to_listeningList)
+            "tests" -> findNavController().navigate(R.id.action_home_to_testList)
+            "progress" -> findNavController().navigate(R.id.progressDashboardFragment)
+
+
         }
     }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -33,19 +40,33 @@ class HomeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.topBar.setOnMenuItemClickListener { item ->
+            android.util.Log.d("HomeFragment", "Menu item clicked: ${item.itemId}")
             when (item.itemId) {
-                R.id.action_notifications -> {
-                    // TODO: Mở màn thông báo
-                    true
-                }
                 R.id.action_profile -> {
-                    // TODO: Mở màn hồ sơ
+                    android.util.Log.d("HomeFragment", "Profile clicked")
+                    try {
+                        findNavController().navigate(R.id.profileFragment)
+                    } catch (e: Exception) {
+                        android.util.Log.e("HomeFragment", "Navigation error: ${e.message}")
+                    }
                     true
                 }
-                else -> false
+                R.id.action_notifications -> {
+                    android.util.Log.d("HomeFragment", "Notifications clicked")
+                    try {
+                        findNavController().navigate(R.id.notificationsFragment)
+                    } catch (e: Exception) {
+                        android.util.Log.e("HomeFragment", "Navigation error: ${e.message}")
+                    }
+                    true
+                }
+                else -> {
+                    android.util.Log.d("HomeFragment", "Unknown menu item: ${item.itemId}")
+                    false
+                }
             }
         }
-
+        
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
         vm.items.observe(viewLifecycleOwner) { adapter.submitList(it) }

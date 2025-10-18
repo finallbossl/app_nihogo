@@ -1,5 +1,7 @@
 package com.example.nihongomaster.ui.home
 
+import com.example.nihongomaster.model.HomeUiModel
+
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.nihongomaster.databinding.ItemFeatureCardBinding
 import com.example.nihongomaster.databinding.ItemSectionHeaderBinding
 import com.example.nihongomaster.databinding.ItemWelcomeBinding
+
 
 class HomeAdapter(
     private val onCardClick: (id: String) -> Unit
