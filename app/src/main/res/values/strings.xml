@@ -33,7 +33,6 @@
     <string name="your_achievements">Your Achievements</string>
     <string name="achieved">Achieved</string>
 
-
     <string name="edit">Edit</string>
     <string name="settings">Settings</string>
     <string name="learning_summary">Learning Summary</string>
@@ -44,5 +43,4 @@
     <string name="clear_all">Clear all</string>
     <string name="no_notifications">No notifications yet</string>
     <string name="notification_description">We\'ll notify you about your learning progress and achievements</string>
-
 </resources>

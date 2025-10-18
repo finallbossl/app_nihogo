@@ -18,36 +18,36 @@ class VocabularyRepository @Inject constructor(
     private val vocabCategoryDao: VocabCategoryDao,
     private val apiService: NihongoApiService
 ) {
-    
+
     fun getCategories(): Flow<List<VocabCategory>> {
         return vocabCategoryDao.getAllCategories().map { entities ->
             entities.map { it.toVocabCategory() }
         }
     }
-    
+
     fun getWordsByCategory(categoryId: String): Flow<List<VocabWord>> {
         return vocabWordDao.getWordsByCategory(categoryId).map { entities ->
             entities.map { it.toVocabWord() }
         }
     }
-    
+
     fun getFavoriteWords(): Flow<List<VocabWord>> {
         return vocabWordDao.getFavoriteWords().map { entities ->
             entities.map { it.toVocabWord() }
         }
     }
-    
+
     suspend fun toggleFavorite(wordId: String) {
         val word = vocabWordDao.getWordById(wordId)
         word?.let {
             vocabWordDao.updateFavoriteStatus(wordId, !it.isFavorite)
         }
     }
-    
+
     suspend fun markWordAsLearned(wordId: String) {
         vocabWordDao.updateLearnedStatus(wordId, true)
     }
-    
+
     suspend fun syncCategories() {
         try {
             val response = apiService.getVocabCategories()
@@ -62,7 +62,7 @@ class VocabularyRepository @Inject constructor(
             // Handle network error - use local data
         }
     }
-    
+
     suspend fun syncWords(categoryId: String) {
         try {
             val response = apiService.getWordsByCategory(categoryId)
@@ -81,11 +81,7 @@ class VocabularyRepository @Inject constructor(
 
 // Extension functions for mapping
 private fun VocabCategoryEntity.toVocabCategory() = VocabCategory(
-    id = id,
-    iconRes = iconRes,
-    title = title,
-    subtitle = subtitle,
-    progress = progress
+    id = id, iconRes = iconRes, title = title, subtitle = subtitle, progress = progress
 )
 
 private fun VocabWordEntity.toVocabWord() = VocabWord(

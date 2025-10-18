@@ -13,5 +13,4 @@
         android:icon="@drawable/ic_user"
         android:title="Profile"
         app:showAsAction="always" />
-
 </menu>

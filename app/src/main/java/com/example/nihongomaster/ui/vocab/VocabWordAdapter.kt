@@ -16,6 +16,7 @@ class VocabWordAdapter(
     object DiffCallback : DiffUtil.ItemCallback<VocabWord>() {
         override fun areItemsTheSame(oldItem: VocabWord, newItem: VocabWord): Boolean =
             oldItem.id == newItem.id
+
         override fun areContentsTheSame(oldItem: VocabWord, newItem: VocabWord): Boolean =
             oldItem == newItem
     }
@@ -30,7 +31,8 @@ class VocabWordAdapter(
         holder.bind(getItem(position))
     }
 
-    inner class ViewHolder(private val binding: ItemVocabWordBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: ItemVocabWordBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(word: VocabWord) {
             binding.tvKanji.text = word.kanji
             binding.tvHiragana.text = word.hiragana

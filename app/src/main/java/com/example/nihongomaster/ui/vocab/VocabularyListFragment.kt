@@ -34,8 +34,9 @@ class VocabularyListFragment : Fragment() {
 
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
-        
-        binding.recyclerFavorites.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+        binding.recyclerFavorites.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerFavorites.adapter = favoritesAdapter
 
         vm.categories.observe(viewLifecycleOwner) { adapter.submitList(it) }
@@ -45,5 +46,7 @@ class VocabularyListFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() { super.onDestroyView(); _binding = null }
+    override fun onDestroyView() {
+        super.onDestroyView(); _binding = null
+    }
 }

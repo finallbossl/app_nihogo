@@ -3,55 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     app:cardCornerRadius="16dp"
-    app:strokeColor="@android:color/transparent"
     app:cardUseCompatPadding="true"
-    android:layout_marginBottom="10dp">
+    app:strokeColor="@android:color/transparent">
 
     <LinearLayout
-        android:padding="14dp"
-        android:gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="14dp">
 
         <ImageView
             android:id="@+id/ivIcon"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:contentDescription="@null"
-            android:src="@drawable/ic_bulb"/>
+            android:src="@drawable/ic_bulb" />
 
         <LinearLayout
-            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvTitle"
-                android:text="Vocabulary Learning"
-                android:textStyle="bold"
-                android:textSize="15sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Vocabulary Learning"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvSubtitle"
-                android:text="Master Japanese words with interactive flashcards"
-                android:textSize="12sp"
-                android:alpha="0.8"
-                android:maxLines="2"
-                android:ellipsize="end"
-                android:layout_marginTop="3dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:alpha="0.8"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Master Japanese words with interactive flashcards"
+                android:textSize="12sp" />
         </LinearLayout>
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:src="@drawable/ic_chevron_right"
-            android:contentDescription="@null"/>
+            android:contentDescription="@null"
+            android:src="@drawable/ic_chevron_right" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

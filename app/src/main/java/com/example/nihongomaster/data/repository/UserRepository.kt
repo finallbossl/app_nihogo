@@ -9,39 +9,38 @@ import javax.inject.Singleton
 
 @Singleton
 class UserRepository @Inject constructor(
-    private val userProgressDao: UserProgressDao,
-    private val apiService: NihongoApiService
+    private val userProgressDao: UserProgressDao, private val apiService: NihongoApiService
 ) {
-    
+
     fun getUserProgress(): Flow<UserProgressEntity?> {
         return userProgressDao.getUserProgress()
     }
-    
+
     suspend fun incrementWordsLearned() {
         userProgressDao.incrementWordsLearned()
         syncProgressToServer()
     }
-    
+
     suspend fun incrementLessonsCompleted() {
         userProgressDao.incrementLessonsCompleted()
         syncProgressToServer()
     }
-    
+
     suspend fun addStudyTime(minutes: Int) {
         userProgressDao.addStudyTime(minutes)
         syncProgressToServer()
     }
-    
+
     suspend fun updateStreak(streak: Int, date: Long) {
         userProgressDao.updateStreak(streak, date)
         syncProgressToServer()
     }
-    
+
     suspend fun initializeUser() {
         val defaultProgress = UserProgressEntity()
         userProgressDao.insertProgress(defaultProgress)
     }
-    
+
     private suspend fun syncProgressToServer() {
         try {
             // TODO: Implement when backend is ready
@@ -51,7 +50,7 @@ class UserRepository @Inject constructor(
             // Handle sync error
         }
     }
-    
+
     suspend fun syncFromServer() {
         try {
             // TODO: Implement when backend is ready

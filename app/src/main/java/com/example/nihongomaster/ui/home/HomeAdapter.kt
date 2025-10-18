@@ -22,7 +22,8 @@ class HomeAdapter(
             oldItem::class == newItem::class &&
                     (oldItem as? HomeUiModel.FeatureCard)?.id == (newItem as? HomeUiModel.FeatureCard)?.id
 
-        override fun areContentsTheSame(oldItem: HomeUiModel, newItem: HomeUiModel): Boolean = oldItem == newItem
+        override fun areContentsTheSame(oldItem: HomeUiModel, newItem: HomeUiModel): Boolean =
+            oldItem == newItem
     }
 
     override fun getItemViewType(position: Int): Int = when (getItem(position)) {
@@ -57,7 +58,9 @@ class HomeAdapter(
     }
 
     class SectionVH(private val b: ItemSectionHeaderBinding) : RecyclerView.ViewHolder(b.root) {
-        fun bind(m: HomeUiModel.SectionHeader) { b.tvSection.text = m.title }
+        fun bind(m: HomeUiModel.SectionHeader) {
+            b.tvSection.text = m.title
+        }
     }
 
     class CardVH(

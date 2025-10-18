@@ -22,10 +22,10 @@ data class VocabDetail(
 class VocabDetailViewModel : ViewModel() {
     private val _detail = MutableLiveData<VocabDetail>()
     val detail: LiveData<VocabDetail> = _detail
-    
+
     private val _isFavorite = MutableLiveData<Boolean>(false)
     val isFavorite: LiveData<Boolean> = _isFavorite
-    
+
     private var currentWordId: String = ""
 
     fun load(wordId: String) {
@@ -48,6 +48,7 @@ class VocabDetailViewModel : ViewModel() {
                     RelatedWord("すみません", "Excuse me / sorry; thank you", null)
                 )
             )
+
             else -> VocabDetail(
                 wordId = wordId,
                 headwordJp = "こんにちは",
@@ -69,11 +70,11 @@ class VocabDetailViewModel : ViewModel() {
         currentWordId = wordId
         _isFavorite.value = FavoriteManager.isFavorite(wordId)
     }
-    
+
     fun toggleFavorite() {
         val current = _isFavorite.value ?: false
         _isFavorite.value = !current
-        
+
         if (!current) {
             FavoriteManager.addToFavorites(currentWordId)
         } else {
@@ -84,19 +85,19 @@ class VocabDetailViewModel : ViewModel() {
 
 object FavoriteManager {
     private val favorites = mutableSetOf<String>()
-    
+
     fun addToFavorites(wordId: String) {
         favorites.add(wordId)
     }
-    
+
     fun removeFromFavorites(wordId: String) {
         favorites.remove(wordId)
     }
-    
+
     fun isFavorite(wordId: String): Boolean {
         return favorites.contains(wordId)
     }
-    
+
     fun getFavoriteWords(): List<VocabWord> {
         val allWords = listOf(
             VocabWord("basic_1", "こんにちは", "konnichiwa", "hello", "N5", true),
