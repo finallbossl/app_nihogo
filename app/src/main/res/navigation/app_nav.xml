@@ -33,5 +33,21 @@
         <argument
             android:name="categoryId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_session_to_detail"
+            app:destination="@id/vocabDetailFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/vocabDetailFragment"
+        android:name="com.example.nihongomaster.ui.vocab.VocabDetailFragment"
+        android:label="Vocabulary Details">
+        <argument
+            android:name="wordId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.nihongomaster.ui.profile.ProfileFragment"
+        android:label="Profile" />
 </navigation>

@@ -18,10 +18,10 @@ class HomeFragment : Fragment() {
     private val adapter = HomeAdapter { cardId ->
         when (cardId) {
             "vocab" -> findNavController().navigate(R.id.action_home_to_vocabularyList)
-            "reading" -> findNavController().navigate(R.id.action_home_to_readingList)
-            "listening" -> findNavController().navigate(R.id.action_home_to_listeningList)
-            "tests" -> findNavController().navigate(R.id.action_home_to_testList)
-            "progress" -> findNavController().navigate(R.id.progressDashboardFragment)
+//            "reading" -> findNavController().navigate(R.id.action_home_to_readingList)
+//            "listening" -> findNavController().navigate(R.id.action_home_to_listeningList)
+//            "tests" -> findNavController().navigate(R.id.action_home_to_testList)
+//            "progress" -> findNavController().navigate(R.id.progressDashboardFragment)
 
 
         }
@@ -51,15 +51,15 @@ class HomeFragment : Fragment() {
                     }
                     true
                 }
-                R.id.action_notifications -> {
-                    android.util.Log.d("HomeFragment", "Notifications clicked")
-                    try {
-                        findNavController().navigate(R.id.notificationsFragment)
-                    } catch (e: Exception) {
-                        android.util.Log.e("HomeFragment", "Navigation error: ${e.message}")
-                    }
-                    true
-                }
+//                R.id.action_notifications -> {
+//                    android.util.Log.d("HomeFragment", "Notifications clicked")
+//                    try {
+//                        findNavController().navigate(R.id.notificationsFragment)
+//                    } catch (e: Exception) {
+//                        android.util.Log.e("HomeFragment", "Navigation error: ${e.message}")
+//                    }
+//                    true
+//                }
                 else -> {
                     android.util.Log.d("HomeFragment", "Unknown menu item: ${item.itemId}")
                     false

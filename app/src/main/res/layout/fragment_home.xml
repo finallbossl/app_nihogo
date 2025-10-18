@@ -6,36 +6,53 @@
     android:layout_height="match_parent"
     android:background="@color/surfaceBg">
 
-    <!-- Header cố định -->
+    <!-- Header -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/surfaceHeader"
-        android:elevation="4dp">
+        android:background="@drawable/bg_home_header"
+        android:elevation="8dp">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Nihongo Master"
-            app:titleTextColor="@color/teal_200"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            app:titleCentered="false"
+            app:title="🎌 Nihongo Master"
+            app:titleTextColor="@android:color/white"
+            app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
             app:menu="@menu/menu_home_top"
-            app:contentInsetStart="16dp"
-            app:contentInsetEnd="16dp"
-            android:background="@color/surfaceHeader"/>
+            android:background="@android:color/transparent" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Nội dung cuộn -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:clipToPadding="false"
-        android:overScrollMode="never" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Welcome Image -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_welcome" />
+
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

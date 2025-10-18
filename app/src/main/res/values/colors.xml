@@ -2,7 +2,7 @@
 <resources>
     <color name="brandPrimary">#FF6F61</color>
     <color name="surfaceBg">#FFFFFF</color>
-    <color name="surfaceHeader">#e7f2fb</color>
+    <color name="surfaceHeader">#FF6F61</color>
     <color name="textPrimary">#d3d6cb</color>
     <color name="textSecondary">#6B7280</color>
     <color name="divider">#11000000</color>
@@ -18,4 +18,11 @@
     <color name="md_theme_light_background">#FFFFFF</color>
     <color name="md_theme_light_surface">#FFFFFF</color>
     <color name="md_theme_light_onSurface">#1C1B1F</color>
+
+    <!-- Progress Dashboard Colors -->
+    <color name="streak_card_bg">#FF6B35</color>
+    <color name="words_card_bg">#4ECDC4</color>
+    <color name="accuracy_card_bg">#45B7D1</color>
+    <color name="progress_bg_start">#FF6F61</color>
+    <color name="progress_bg_end">#FF8A80</color>
 </resources>
