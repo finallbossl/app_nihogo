@@ -1,5 +1,7 @@
 package com.example.nihongomaster.ui.vocab
 
+import com.example.nihongomaster.model.VocabCategory
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

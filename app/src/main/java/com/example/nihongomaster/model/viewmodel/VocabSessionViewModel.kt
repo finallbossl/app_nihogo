@@ -1,10 +1,9 @@
-package com.example.nihongomaster.ui.vocab
+package com.example.nihongomaster.model.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-
-data class VocabWord(val jp: String, val romaji: String, val meaning: String)
+import com.example.nihongomaster.model.VocabWord
 
 class VocabSessionViewModel : ViewModel() {
     private lateinit var words: List<VocabWord>
@@ -21,24 +20,27 @@ class VocabSessionViewModel : ViewModel() {
     val due: LiveData<Int> = _due
     private val _total = MutableLiveData(0)
     val total: LiveData<Int> = _total
-
+    
+    fun currentWordId(): String? {
+        return _current.value?.id
+    }
+    
     fun start(categoryId: String) {
-        // mock list theo category
         words = when (categoryId) {
             "basic" -> listOf(
-                VocabWord("こんにちは", "konnichiwa", "hello"),
-                VocabWord("ありがとう", "arigatou", "thank you"),
-                VocabWord("さようなら", "sayounara", "goodbye"),
+                VocabWord("basic_1","こんにちは","konnichiwa","hello","N5"),
+                VocabWord("basic_2","ありがとう","arigatou","thank you","N5"),
+                VocabWord("basic_3","さようなら","sayounara","goodbye","N5"),
             )
             "travel" -> listOf(
-                VocabWord("駅", "eki", "station"),
-                VocabWord("地図", "chizu", "map"),
-                VocabWord("切符", "kippu", "ticket"),
+                VocabWord("travel_1","駅","eki","station","N5"),
+                VocabWord("travel_2","地図","chizu","map","N5"),
+                VocabWord("travel_3","切符","kippu","ticket","N5"),
             )
             else -> listOf(
-                VocabWord("時間", "jikan", "time"),
-                VocabWord("友達", "tomodachi", "friend"),
-                VocabWord("勉強", "benkyou", "study"),
+                VocabWord("misc_1","時間","jikan","time","N5"),
+                VocabWord("misc_2","友達","tomodachi","friend","N5"),
+                VocabWord("misc_3","勉強","benkyou","study","N5"),
             )
         }
         index = 0
@@ -64,7 +66,7 @@ class VocabSessionViewModel : ViewModel() {
     }
 
     fun markUnknown() {
-        _due.value = (_due.value ?: 0) // giữ nguyên, có thể xếp lại hàng
+        _due.value = (_due.value ?: 0)
         if (index < words.lastIndex) next()
     }
 

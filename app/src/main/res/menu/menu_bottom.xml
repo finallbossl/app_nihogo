@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/homeFragment"
         android:title="Home"
@@ -11,12 +12,19 @@
         android:icon="@drawable/ic_book" />
 
     <item
-        android:id="@+id/reading"
+        android:id="@+id/readingListFragment"
         android:title="Reading"
         android:icon="@drawable/ic_article" />
 
     <item
-        android:id="@+id/profile"
-        android:title="Profile"
-        android:icon="@drawable/ic_user" />
+        android:id="@+id/listeningListFragment"
+        android:title="Listening"
+        android:icon="@drawable/ic_headphones" />
+
+    <item
+        android:id="@+id/testListFragment"
+        android:title="Tests"
+        android:icon="@drawable/ic_quiz_box" />
+
+
 </menu>

@@ -5,5 +5,44 @@
     <string name="reading">Reading</string>
     <string name="listening">Listening</string>
     <string name="profile">Profile</string>
+    <string name="play_audio">Phát âm thanh</string>
+    <string name="sample_question">Nghe đoạn hội thoại và chọn đáp án đúng:</string>
+    <string name="option_a">Lựa chọn A</string>
+    <string name="option_b">Lựa chọn B</string>
+    <string name="option_c">Lựa chọn C</string>
+    <string name="option_d">Lựa chọn D</string>
+    <string name="option_a_text">Đáp án A</string>
+    <string name="option_b_text">Đáp án B</string>
+    <string name="option_c_text">Đáp án C</string>
+    <string name="option_d_text">Đáp án D</string>
+    <string name="lesson_thumbnail">Lesson thumbnail image</string>
+    <string name="tests">Practice Tests</string>
+    <string name="search_tests">Search tests…</string>
+    <string name="question_x_of_y">Question %1$d of %2$d</string>
+    <string name="your_score">Your Score</string>
+    <string name="score_format">%1$d / %2$d  (%3$d%%)</string>
+    <string name="next_question">Next Question</string>
+
+    <string name="progress_dashboard">Progress Dashboard</string>
+    <string name="your_progress_glance">Your Progress at a Glance</string>
+    <string name="learning_streak">Learning Streak</string>
+    <string name="words_learned">Words Learned</string>
+    <string name="avg_accuracy">Avg. Accuracy</string>
+    <string name="activity_trend">Activity Trend</string>
+    <string name="recent_activity">Recent Activity</string>
+    <string name="your_achievements">Your Achievements</string>
+    <string name="achieved">Achieved</string>
+
+
+    <string name="edit">Edit</string>
+    <string name="settings">Settings</string>
+    <string name="learning_summary">Learning Summary</string>
+
+    <!-- Profile & Notifications -->
+    <string name="notifications">Notifications</string>
+    <string name="mark_all_read">Mark all as read</string>
+    <string name="clear_all">Clear all</string>
+    <string name="no_notifications">No notifications yet</string>
+    <string name="notification_description">We\'ll notify you about your learning progress and achievements</string>
 
 </resources>

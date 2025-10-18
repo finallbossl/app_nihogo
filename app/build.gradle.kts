@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-
+    id("com.google.devtools.ksp") version "1.9.20-1.0.14"
 }
 
 android {
@@ -48,19 +48,36 @@ dependencies {
 
     // UI cơ bản
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.material)                         // Material 3 (LinearProgressIndicator, MaterialToolbar, MaterialCardView, ...)
+    implementation(libs.material)
 
-    // 🔧 Những phần bạn đang dùng trong code:
-    implementation(libs.androidx.activity.ktx)            // ADD: enableEdgeToEdge(), lifecycle scope cho Activity
-    implementation(libs.androidx.fragment.ktx)            // ADD: viewModels() trong Fragment, các tiện ích KTX
-    implementation(libs.androidx.recyclerview)            // ADD: RecyclerView cho list/category
-    implementation(libs.androidx.coordinatorlayout)       // ADD: CoordinatorLayout + AppBarLayout behavior
+    // Fragment + Activity
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.coordinatorlayout)
 
     // Lifecycle + Navigation
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Room Database
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+
+    // Retrofit + Networking
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+
+    // Dependency Injection
+    implementation("javax.inject:javax.inject:1")
+
+    // Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Test
     testImplementation(libs.junit)
