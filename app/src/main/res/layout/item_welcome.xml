@@ -3,39 +3,39 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
     app:cardCornerRadius="16dp"
-    app:cardUseCompatPadding="true"
-    android:layout_marginBottom="12dp">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:padding="16dp"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvTitle"
-            android:text="Welcome to Nihongo Master!"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Welcome to Nihongo Master!"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvSubtitle"
-            android:text="Your personalized path to Japanese fluency starts here..."
-            android:textSize="13sp"
-            android:alpha="0.8"
-            android:layout_marginTop="6dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:alpha="0.8"
+            android:text="Your personalized path to Japanese fluency starts here..."
+            android:textSize="13sp" />
 
         <ImageView
             android:id="@+id/ivHero"
             android:layout_width="match_parent"
             android:layout_height="140dp"
-            android:scaleType="centerCrop"
             android:layout_marginTop="12dp"
-            android:src="@drawable/img_welcome"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_welcome" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

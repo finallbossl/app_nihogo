@@ -3,28 +3,26 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:title="Home"
-        android:icon="@drawable/ic_home" />
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
 
     <item
         android:id="@+id/vocabularyListFragment"
-        android:title="Vocabulary"
-        android:icon="@drawable/ic_book" />
+        android:icon="@drawable/ic_book"
+        android:title="Vocabulary" />
 
     <item
         android:id="@+id/readingListFragment"
-        android:title="Reading"
-        android:icon="@drawable/ic_article" />
+        android:icon="@drawable/ic_article"
+        android:title="Reading" />
 
     <item
         android:id="@+id/listeningListFragment"
-        android:title="Listening"
-        android:icon="@drawable/ic_headphones" />
+        android:icon="@drawable/ic_headphones"
+        android:title="Listening" />
 
     <item
         android:id="@+id/testListFragment"
-        android:title="Tests"
-        android:icon="@drawable/ic_quiz_box" />
-
-
+        android:icon="@drawable/ic_quiz_box"
+        android:title="Tests" />
 </menu>

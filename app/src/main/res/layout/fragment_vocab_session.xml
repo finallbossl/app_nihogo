@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,13 +10,14 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bg_vocab_header"
         android:elevation="4dp">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
             app:title="📚 Vocabulary Practice"
-            app:titleTextColor="@color/white"
-            android:background="@android:color/transparent" />
+            app:titleTextColor="@color/white" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -36,15 +36,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="240dp"
                 android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="12dp"
-                app:cardBackgroundColor="@color/white">
+                app:cardElevation="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:padding="24dp">
 
                     <TextView
@@ -52,18 +52,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="学校"
+                        android:textColor="@color/brandPrimary"
                         android:textSize="48sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/brandPrimary" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tvRomaji"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:alpha="0.7"
                         android:text="gakkou"
-                        android:textSize="18sp"
-                        android:alpha="0.7" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/tvMeaning"
@@ -71,9 +71,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="school"
+                        android:textColor="@color/teal_200"
                         android:textSize="24sp"
                         android:textStyle="bold"
-                        android:textColor="@color/teal_200"
                         android:visibility="invisible" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -93,16 +93,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="12dp"
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnUnknown"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="56dp"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:text="❌ Don't Know"
                     android:textSize="14sp"
                     app:strokeColor="#FF5722" />
@@ -112,8 +112,8 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="56dp"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:text="✅ I Know This"
                     android:textSize="14sp"
                     app:backgroundTint="@color/teal_200" />
@@ -135,9 +135,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="8dp"
-                app:cardBackgroundColor="@color/white">
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -148,22 +148,24 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
+                        android:layout_marginBottom="16dp"
                         android:gravity="center_vertical"
-                        android:layout_marginBottom="16dp">
+                        android:orientation="horizontal">
+
                         <TextView
-                            android:text="📊"
-                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:text="📊"
+                            android:textSize="20sp" />
+
                         <TextView
-                            android:text="Session Progress"
-                            android:textStyle="bold"
-                            android:textSize="18sp"
-                            android:textColor="@color/brandPrimary"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:text="Session Progress"
+                            android:textColor="@color/brandPrimary"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
                     </LinearLayout>
 
                     <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -171,11 +173,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="12dp"
                         android:layout_marginBottom="16dp"
-                        app:trackCornerRadius="6dp"
-                        app:trackThickness="12dp"
-                        app:trackColor="#E8F5E8"
+                        android:progress="45"
                         app:indicatorColor="@color/teal_200"
-                        android:progress="45" />
+                        app:trackColor="#E8F5E8"
+                        app:trackCornerRadius="6dp"
+                        app:trackThickness="12dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -186,81 +188,90 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <TextView
-                                android:text="✅"
-                                android:textSize="16sp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:text="✅"
+                                android:textSize="16sp" />
+
                             <TextView
                                 android:id="@+id/tvLearned"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="12"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
                                 android:textColor="@color/teal_200"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
                             <TextView
-                                android:text="Learned"
-                                android:textSize="12sp"
-                                android:alpha="0.7"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:alpha="0.7"
+                                android:text="Learned"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <TextView
-                                android:text="⏳"
-                                android:textSize="16sp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:text="⏳"
+                                android:textSize="16sp" />
+
                             <TextView
                                 android:id="@+id/tvDue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="8"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
                                 android:textColor="@color/brandPrimary"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
                             <TextView
-                                android:text="Remaining"
-                                android:textSize="12sp"
-                                android:alpha="0.7"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:alpha="0.7"
+                                android:text="Remaining"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:orientation="vertical"
-                            android:gravity="center">
+                            android:gravity="center"
+                            android:orientation="vertical">
+
                             <TextView
-                                android:text="📚"
-                                android:textSize="16sp"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:text="📚"
+                                android:textSize="16sp" />
+
                             <TextView
                                 android:id="@+id/tvTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:text="20"
-                                android:textStyle="bold"
-                                android:textSize="20sp"
                                 android:textColor="@color/brandPrimary"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+
                             <TextView
-                                android:text="Total"
-                                android:textSize="12sp"
-                                android:alpha="0.7"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:alpha="0.7"
+                                android:text="Total"
+                                android:textSize="12sp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -277,8 +288,8 @@
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="56dp"
-                    android:layout_weight="1"
                     android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
                     android:text="⏭️ Skip"
                     app:strokeColor="@color/brandPrimary" />
 
@@ -287,8 +298,8 @@
                     style="@style/Widget.Material3.Button"
                     android:layout_width="0dp"
                     android:layout_height="56dp"
-                    android:layout_weight="1"
                     android:layout_marginStart="8dp"
+                    android:layout_weight="1"
                     android:text="➡️ Next Word"
                     app:backgroundTint="@color/brandPrimary" />
             </LinearLayout>

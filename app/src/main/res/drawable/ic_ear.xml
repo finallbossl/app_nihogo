@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp" android:height="24dp"
-    android:viewportWidth="24" android:viewportHeight="24"
-    android:tint="?attr/colorControlNormal">
+    android:width="24dp"
+    android:height="24dp"
+    android:tint="?attr/colorControlNormal"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
 
     <!-- vành tai nghe -->
     <path
         android:fillColor="@android:color/black"
-        android:pathData="M4,12 a8,8 0 0,1 16,0 h-2 a6,6 0 0,0 -12,0 h-2 z"/>
+        android:pathData="M4,12 a8,8 0 0,1 16,0 h-2 a6,6 0 0,0 -12,0 h-2 z" />
 
     <!-- ear pad trái -->
     <path
         android:fillColor="@android:color/black"
-        android:pathData="M3,12 H7 V20 H3 Z"/>
+        android:pathData="M3,12 H7 V20 H3 Z" />
 
     <!-- ear pad phải -->
     <path
         android:fillColor="@android:color/black"
-        android:pathData="M17,12 H21 V20 H17 Z"/>
+        android:pathData="M17,12 H21 V20 H17 Z" />
 </vector>

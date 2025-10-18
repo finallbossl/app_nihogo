@@ -1,4 +1,4 @@
-    package com.example.nihongomaster.model
+package com.example.nihongomaster.model
 
 sealed class HomeUiModel {
     data class Welcome(
@@ -6,9 +6,9 @@ sealed class HomeUiModel {
         val subtitle: String,
         val imageRes: Int
     ) : HomeUiModel()
-    
+
     data class SectionHeader(val title: String) : HomeUiModel()
-    
+
     data class FeatureCard(
         val id: String,
         val iconRes: Int,

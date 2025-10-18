@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp" android:height="24dp"
-    android:viewportWidth="24" android:viewportHeight="24"
-    android:tint="?attr/colorControlNormal">
+    android:width="24dp"
+    android:height="24dp"
+    android:tint="?attr/colorControlNormal"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
 
     <!-- tile trái (rounded square) -->
     <path
         android:fillColor="@android:color/black"
-        android:pathData="M3,5 h8 a2,2 0 0 1 2,2 v8 a2,2 0 0 1 -2,2 h-8 a2,2 0 0 1 -2,-2 v-8 a2,2 0 0 1 2,-2 z"/>
+        android:pathData="M3,5 h8 a2,2 0 0 1 2,2 v8 a2,2 0 0 1 -2,2 h-8 a2,2 0 0 1 -2,-2 v-8 a2,2 0 0 1 2,-2 z" />
 
     <!-- vạch gợi hình kana trong ô trái -->
     <path
         android:fillColor="@android:color/white"
-        android:pathData="M5.5,10 h6 v1.5 h-6 z"/>
+        android:pathData="M5.5,10 h6 v1.5 h-6 z" />
     <path
         android:fillColor="@android:color/white"
-        android:pathData="M8.5,7.5 v6 h-1.5 v-6 z"/>
+        android:pathData="M8.5,7.5 v6 h-1.5 v-6 z" />
 
     <!-- tile phải (rounded square) -->
     <path
         android:fillColor="@android:color/black"
-        android:pathData="M13,5 h8 a2,2 0 0 1 2,2 v8 a2,2 0 0 1 -2,2 h-8 a2,2 0 0 1 -2,-2 v-8 a2,2 0 0 1 2,-2 z"/>
+        android:pathData="M13,5 h8 a2,2 0 0 1 2,2 v8 a2,2 0 0 1 -2,2 h-8 a2,2 0 0 1 -2,-2 v-8 a2,2 0 0 1 2,-2 z" />
 
     <!-- vạch gợi hình kana katakana trong ô phải -->
     <path
         android:fillColor="@android:color/white"
-        android:pathData="M15.5,8 h6 v1.5 h-6 z"/>
+        android:pathData="M15.5,8 h6 v1.5 h-6 z" />
     <path
         android:fillColor="@android:color/white"
-        android:pathData="M17,10 h4 v1.5 h-4 z"/>
+        android:pathData="M17,10 h4 v1.5 h-4 z" />
 </vector>
