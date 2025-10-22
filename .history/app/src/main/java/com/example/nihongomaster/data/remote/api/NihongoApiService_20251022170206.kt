@@ -35,17 +35,4 @@ interface NihongoApiService {
 
     @GET("study/sessions")
     suspend fun getStudySessions(): Response<List<StudySessionDto>>
-
-    // Authentication endpoints
-    @POST("auth/register")
-    suspend fun register(@Body request: RegisterRequest): Response<AuthResponse>
-
-    @POST("auth/login")
-    suspend fun login(@Body request: LoginRequest): Response<AuthResponse>
-
-    @POST("auth/refresh")
-    suspend fun refresh(@Body request: RefreshRequest): Response<AuthResponse>
-
-    @POST("auth/logout")
-    suspend fun logout(@Body request: LogoutRequest): Response<Unit>
 }
