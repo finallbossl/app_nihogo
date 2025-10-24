@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
         when (cardId) {
             "vocab" -> findNavController().navigate(R.id.action_home_to_vocabularyList)
             "reading" -> findNavController().navigate(R.id.action_home_to_readingList)
-//            "listening" -> findNavController().navigate(R.id.action_home_to_listeningList)
+            "listening" -> findNavController().navigate(R.id.action_home_to_listeningList)
 //            "tests" -> findNavController().navigate(R.id.action_home_to_testList)
             "progress" -> findNavController().navigate(R.id.progressDashboardFragment)
         }
