@@ -14,9 +14,6 @@
         <action
             android:id="@+id/action_home_to_readingList"
             app:destination="@id/readingListFragment" />
-        <action
-            android:id="@+id/action_home_to_listeningList"
-            app:destination="@id/listeningListFragment" />
     </fragment>
 
     <fragment
