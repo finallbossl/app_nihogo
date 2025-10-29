@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_home_to_readingList"
             app:destination="@id/readingListFragment" />
+        <action
+            android:id="@+id/action_home_to_listeningList"
+            app:destination="@id/listeningListFragment" />
     </fragment>
 
     <fragment
@@ -94,4 +97,38 @@
         android:id="@+id/notificationsFragment"
         android:name="com.example.nihongomaster.ui.notifications.NotificationsFragment"
         android:label="Notifications" />
+
+    <!-- Authentication -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.nihongomaster.ui.auth.LoginFragment"
+        android:label="Đăng nhập">
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.nihongomaster.ui.auth.RegisterFragment"
+        android:label="Đăng ký" />
+
+    <!-- Listening -->
+    <fragment
+        android:id="@+id/listeningListFragment"
+        android:name="com.example.nihongomaster.ui.listening.ListeningListFragment"
+        android:label="Luyện Nghe">
+        <action
+            android:id="@+id/action_listeningList_to_detail"
+            app:destination="@id/listeningDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listeningDetailFragment"
+        android:name="com.example.nihongomaster.ui.listening.ListeningDetailFragment"
+        android:label="Bài Luyện Nghe">
+        <argument
+            android:name="exerciseId"
+            app:argType="string" />
+    </fragment>
 </navigation>
