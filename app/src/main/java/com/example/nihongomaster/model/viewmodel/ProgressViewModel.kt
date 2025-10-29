@@ -32,14 +32,14 @@ class ProgressViewModel : ViewModel() {
 
     private val _favoriteWords = MutableLiveData<List<FavoriteWord>>()
     val favoriteWords: LiveData<List<FavoriteWord>> = _favoriteWords
-
+    
     init {
         loadFavoriteWords()
     }
-
+    
     private fun loadFavoriteWords() {
         val vocabWords = FavoriteManager.getFavoriteWords()
-        val favoriteWords = vocabWords.map {
+        val favoriteWords = vocabWords.map { 
             FavoriteWord(it.id, it.kanji, it.hiragana, it.meaning, it.level)
         }
         _favoriteWords.value = favoriteWords

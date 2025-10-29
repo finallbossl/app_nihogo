@@ -11,23 +11,21 @@ import com.example.nihongomaster.data.local.entities.*
     entities = [
         VocabWordEntity::class,
         VocabCategoryEntity::class,
-        UserProgressEntity::class,
-        TokenEntity::class
+        UserProgressEntity::class
     ],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 abstract class NihongoDatabase : RoomDatabase() {
-
+    
     abstract fun vocabWordDao(): VocabWordDao
     abstract fun vocabCategoryDao(): VocabCategoryDao
     abstract fun userProgressDao(): UserProgressDao
-    abstract fun tokenDao(): TokenDao
-
+    
     companion object {
         @Volatile
         private var INSTANCE: NihongoDatabase? = null
-
+        
         fun getDatabase(context: Context): NihongoDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(

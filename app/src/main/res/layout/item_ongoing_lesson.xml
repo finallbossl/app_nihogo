@@ -1,67 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginVertical="4dp"
-    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="12dp"
-    app:cardElevation="2dp">
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:cardBackgroundColor="@color/brandPrimary"
             app:cardCornerRadius="20dp"
-            app:cardElevation="0dp">
-
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/brandPrimary">
             <ImageView
                 android:id="@+id/ivIcon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_listening_box"
-                android:tint="@color/white" />
+                app:tint="@color/white" />
         </com.google.android.material.card.MaterialCardView>
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:layout_marginStart="16dp"
             android:orientation="vertical">
-
+            
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
                 <TextView
                     android:id="@+id/tvTitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Daily Conversation"
-                    android:textColor="@color/brandPrimary"
+                    android:textStyle="bold"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
-
+                    android:textColor="@color/brandPrimary" />
                 <TextView
                     android:id="@+id/tvProgress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="75%"
-                    android:textColor="@color/brandPrimary"
                     android:textSize="12sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/brandPrimary" />
             </LinearLayout>
 
             <TextView
@@ -69,19 +67,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:alpha="0.7"
                 android:text="Listening Exercise"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:alpha="0.7" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="4dp"
                 android:layout_marginTop="8dp"
-                android:progress="75"
                 app:indicatorColor="@color/brandPrimary"
                 app:trackColor="#E0E0E0"
-                app:trackThickness="4dp" />
+                app:trackThickness="4dp"
+                android:progress="75" />
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -24,8 +24,7 @@ class ProfileViewModel : ViewModel() {
     private val _accuracy = MutableLiveData(87)
     val accuracy: LiveData<Int> = _accuracy
 
-    private val _summary =
-        MutableLiveData("Focus Vocabulary • 3 lessons/week • Goal: N5 in 3 months.")
+    private val _summary = MutableLiveData("Focus Vocabulary • 3 lessons/week • Goal: N5 in 3 months.")
     val summary: LiveData<String> = _summary
 
     private val _summaryProgress = MutableLiveData(65)
@@ -33,18 +32,12 @@ class ProfileViewModel : ViewModel() {
 
     private val _activities = MutableLiveData(
         listOf(
-            ActivityItem(
-                "pa1", R.drawable.ic_reading_box, "Completed N5 Reading - Lesson 3",
-                "Daily expressions for greetings.", "2 hours ago", null
-            ),
-            ActivityItem(
-                "pa2", R.drawable.ic_vocab_box, "Mastered 10 New Words",
-                "New set of everyday vocabulary.", "Yesterday", "Vocabulary"
-            ),
-            ActivityItem(
-                "pa3", R.drawable.ic_listening_box, "Listening: Daily Conversation",
-                "Scored 85% on dialogue comprehension.", "3 days ago", null
-            )
+            ActivityItem("pa1", R.drawable.ic_reading_box, "Completed N5 Reading - Lesson 3",
+                "Daily expressions for greetings.", "2 hours ago", null),
+            ActivityItem("pa2", R.drawable.ic_vocab_box, "Mastered 10 New Words",
+                "New set of everyday vocabulary.", "Yesterday", "Vocabulary"),
+            ActivityItem("pa3", R.drawable.ic_listening_box, "Listening: Daily Conversation",
+                "Scored 85% on dialogue comprehension.", "3 days ago", null)
         )
     )
     val activities: LiveData<List<ActivityItem>> = _activities
@@ -53,20 +46,14 @@ class ProfileViewModel : ViewModel() {
         listOf(
             Achievement("pg1", R.drawable.ic_bolt, "First 100 Words", "Vocabulary Learner", true),
             Achievement("pg2", R.drawable.ic_streak, "7-Day Streak", "Keep it up!", true),
-            Achievement(
-                "pg3",
-                R.drawable.ic_medal,
-                "N5 Completion",
-                "Core lessons finished",
-                false
-            ),
+            Achievement("pg3", R.drawable.ic_medal, "N5 Completion", "Core lessons finished", false),
             Achievement("pg4", R.drawable.ic_ear, "Listening Ace", "10 audio sessions", false),
             Achievement("pg5", R.drawable.ic_kana, "Kana Master", "Hiragana + Katakana", true),
             Achievement("pg6", R.drawable.ic_trophy, "Grammar Guru", "15 grammar units", false),
         )
     )
     val achievements: LiveData<List<Achievement>> = _achievements
-
+    
     fun updateName(newName: String) {
         _name.value = newName
     }

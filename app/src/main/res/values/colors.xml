@@ -18,11 +18,14 @@
     <color name="md_theme_light_background">#FFFFFF</color>
     <color name="md_theme_light_surface">#FFFFFF</color>
     <color name="md_theme_light_onSurface">#1C1B1F</color>
-
+    
     <!-- Progress Dashboard Colors -->
     <color name="streak_card_bg">#FF6B35</color>
     <color name="words_card_bg">#4ECDC4</color>
     <color name="accuracy_card_bg">#45B7D1</color>
     <color name="progress_bg_start">#FF6F61</color>
     <color name="progress_bg_end">#FF8A80</color>
+    
+    <!-- Card stroke colors -->
+    <color name="card_stroke_normal">#1A000000</color>
 </resources>

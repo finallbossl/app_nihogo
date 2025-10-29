@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,10 +17,10 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            app:menu="@menu/menu_notifications"
             app:title="🔔 Notifications"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white"
+            android:background="@android:color/transparent"
+            app:menu="@menu/menu_notifications" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -38,45 +39,40 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="16dp"
-                app:cardElevation="4dp">
-
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:padding="20dp">
-
+                    android:padding="20dp"
+                    android:gravity="center_vertical">
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="12dp"
                         android:text="📬"
-                        android:textSize="24sp" />
-
+                        android:textSize="24sp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
-
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="Stay Updated"
-                            android:textColor="@color/brandPrimary"
+                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
+                            android:textColor="@color/brandPrimary"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:alpha="0.8"
+                            android:layout_height="wrap_content" />
+                        <TextView
                             android:text="Keep track of your learning progress and achievements"
-                            android:textSize="14sp" />
+                            android:textSize="14sp"
+                            android:alpha="0.8"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -93,34 +89,31 @@
                 android:id="@+id/layoutEmpty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:orientation="vertical"
+                android:gravity="center"
                 android:padding="40dp"
                 android:visibility="gone">
-
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="🔕"
-                    android:textSize="48sp" />
-
-                <TextView
+                    android:textSize="48sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content" />
+                <TextView
                     android:text="No notifications yet"
-                    android:textColor="@color/brandPrimary"
+                    android:textStyle="bold"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
-
-                <TextView
+                    android:textColor="@color/brandPrimary"
+                    android:layout_marginTop="16dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="We'll notify you about your learning progress and achievements"
+                    android:textSize="14sp"
                     android:alpha="0.7"
                     android:gravity="center"
-                    android:text="We'll notify you about your learning progress and achievements"
-                    android:textSize="14sp" />
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

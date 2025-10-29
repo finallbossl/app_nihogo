@@ -49,7 +49,5 @@ class ProgressDashboardFragment : Fragment() {
         vm.favoriteWords.observe(viewLifecycleOwner) { favoriteWordAdapter.submitList(it) }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView(); _b = null
-    }
+    override fun onDestroyView() { super.onDestroyView(); _b = null }
 }

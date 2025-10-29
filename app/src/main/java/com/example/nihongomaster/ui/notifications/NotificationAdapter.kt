@@ -16,24 +16,16 @@ class NotificationAdapter(
 ) : ListAdapter<NotificationUiModel, RecyclerView.ViewHolder>(Diff) {
 
     object Diff : DiffUtil.ItemCallback<NotificationUiModel>() {
-        override fun areItemsTheSame(
-            oldItem: NotificationUiModel,
-            newItem: NotificationUiModel
-        ): Boolean =
+        override fun areItemsTheSame(oldItem: NotificationUiModel, newItem: NotificationUiModel): Boolean =
             when {
                 oldItem is NotificationUiModel.Section && newItem is NotificationUiModel.Section ->
                     oldItem.title == newItem.title
-
                 oldItem is NotificationUiModel.Item && newItem is NotificationUiModel.Item ->
                     oldItem.notification.id == newItem.notification.id
-
                 else -> false
             }
 
-        override fun areContentsTheSame(
-            oldItem: NotificationUiModel,
-            newItem: NotificationUiModel
-        ): Boolean =
+        override fun areContentsTheSame(oldItem: NotificationUiModel, newItem: NotificationUiModel): Boolean =
             oldItem == newItem
     }
 
@@ -46,10 +38,7 @@ class NotificationAdapter(
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
             0 -> SectionVH(ItemNotificationSectionBinding.inflate(inflater, parent, false))
-            else -> ItemVH(
-                ItemNotificationBinding.inflate(inflater, parent, false),
-                onNotificationClick
-            )
+            else -> ItemVH(ItemNotificationBinding.inflate(inflater, parent, false), onNotificationClick)
         }
     }
 
@@ -60,8 +49,7 @@ class NotificationAdapter(
         }
     }
 
-    class SectionVH(private val binding: ItemNotificationSectionBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class SectionVH(private val binding: ItemNotificationSectionBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(section: NotificationUiModel.Section) {
             binding.tvSection.text = section.title
         }
@@ -76,7 +64,7 @@ class NotificationAdapter(
                 tvTitle.text = notification.title
                 tvMessage.text = notification.message
                 tvTime.text = notification.time
-
+                
                 val iconRes = when (notification.type) {
                     NotificationType.STREAK_REMINDER -> R.drawable.ic_streak
                     NotificationType.LESSON_COMPLETE -> R.drawable.ic_checklist
@@ -86,7 +74,7 @@ class NotificationAdapter(
                     NotificationType.SYSTEM -> R.drawable.ic_settings
                 }
                 ivIcon.setImageResource(iconRes)
-
+                
                 root.alpha = if (notification.isRead) 0.7f else 1.0f
                 root.setOnClickListener { onClick(notification) }
             }

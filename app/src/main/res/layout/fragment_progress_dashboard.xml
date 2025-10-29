@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,9 +16,9 @@
             android:id="@+id/topBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
             app:title="📊 Learning Progress"
-            app:titleTextColor="@color/white" />
+            app:titleTextColor="@color/white"
+            android:background="@android:color/transparent" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -35,133 +36,121 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_margin="16dp"
-                android:baselineAligned="false"
-                android:orientation="horizontal">
+                android:baselineAligned="false">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_marginEnd="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_streak_card"
+                    android:layout_marginEnd="8dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
-
+                    app:cardElevation="4dp"
+                    android:background="@drawable/bg_streak_card">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:orientation="vertical"
+                        android:gravity="center"
                         android:padding="12dp">
-
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="📚"
-                            android:textSize="20sp" />
-
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                         <TextView
                             android:id="@+id/tvWords"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="342"
-                            android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Words Learned"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
                             android:alpha="0.9"
                             android:gravity="center"
-                            android:text="Words Learned"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_words_card"
+                    android:layout_marginHorizontal="4dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
-
+                    app:cardElevation="4dp"
+                    android:background="@drawable/bg_words_card">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:orientation="vertical"
+                        android:gravity="center"
                         android:padding="12dp">
-
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="📖"
-                            android:textSize="20sp" />
-
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                         <TextView
                             android:id="@+id/tvLessons"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="28"
-                            android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Lessons Done"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
                             android:alpha="0.9"
                             android:gravity="center"
-                            android:text="Lessons Done"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="100dp"
-                    android:layout_marginStart="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_accuracy_card"
+                    android:layout_marginStart="8dp"
                     app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp">
-
+                    app:cardElevation="4dp"
+                    android:background="@drawable/bg_accuracy_card">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:orientation="vertical"
+                        android:gravity="center"
                         android:padding="12dp">
-
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="⏱️"
-                            android:textSize="20sp" />
-
+                            android:textSize="20sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                         <TextView
                             android:id="@+id/tvStudyTime"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:text="45h"
-                            android:textColor="@color/white"
                             android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:text="Study Time"
+                            android:textSize="10sp"
+                            android:textColor="@color/white"
                             android:alpha="0.9"
                             android:gravity="center"
-                            android:text="Study Time"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
             </LinearLayout>
@@ -172,39 +161,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
-
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
+                        android:layout_marginBottom="16dp">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
                             android:text="🎯"
-                            android:textSize="20sp" />
-
-                        <TextView
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
                             android:text="Module Progress"
-                            android:textColor="@color/brandPrimary"
+                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/brandPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvModules"
                         android:layout_width="match_parent"
@@ -219,39 +203,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
-
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
+                        android:layout_marginBottom="16dp">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
                             android:text="📝"
-                            android:textSize="20sp" />
-
-                        <TextView
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
                             android:text="Continue Learning"
-                            android:textColor="@color/brandPrimary"
+                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/brandPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvOngoingLessons"
                         android:layout_width="match_parent"
@@ -266,39 +245,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
-
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="16dp"
+                        android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
+                        android:layout_marginBottom="16dp">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
                             android:text="❤️"
-                            android:textSize="20sp" />
-
-                        <TextView
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
                             android:text="Favorite Words"
-                            android:textColor="@color/brandPrimary"
+                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/brandPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
-
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvFavoriteWords"
                         android:layout_width="match_parent"
@@ -313,64 +287,57 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
-
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="20dp">
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
+                        android:layout_marginBottom="12dp">
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
                             android:text="🎯"
-                            android:textSize="20sp" />
-
-                        <TextView
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
                             android:text="Weekly Goal"
-                            android:textColor="@color/brandPrimary"
+                            android:textStyle="bold"
                             android:textSize="18sp"
-                            android:textStyle="bold" />
+                            android:textColor="@color/brandPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
                     </LinearLayout>
-
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="12dp"
-                        android:alpha="0.8"
                         android:text="Learn 50 new words this week"
-                        android:textSize="14sp" />
-
+                        android:textSize="14sp"
+                        android:alpha="0.8"
+                        android:layout_marginBottom="12dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                     <com.google.android.material.progressindicator.LinearProgressIndicator
                         android:id="@+id/weeklyProgress"
                         android:layout_width="match_parent"
                         android:layout_height="8dp"
-                        android:progress="68"
                         app:indicatorColor="@color/brandPrimary"
                         app:trackColor="#E0E0E0"
-                        app:trackThickness="8dp" />
-
+                        app:trackThickness="8dp"
+                        android:progress="68" />
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:text="34/50 words completed"
-                        android:textColor="@color/brandPrimary"
                         android:textSize="12sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:textColor="@color/brandPrimary"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

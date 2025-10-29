@@ -1,49 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/ivIcon"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/ic_trophy"
-            android:tint="@color/brandPrimary" />
+            app:tint="@color/brandPrimary" />
 
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:ellipsize="end"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/brandPrimary"
             android:gravity="center"
             android:maxLines="2"
-            android:textColor="@color/brandPrimary"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:ellipsize="end" />
 
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:textSize="12sp"
             android:alpha="0.7"
-            android:ellipsize="end"
             android:gravity="center"
             android:maxLines="1"
-            android:textSize="12sp" />
+            android:ellipsize="end" />
 
         <com.google.android.material.chip.Chip
             android:id="@+id/badgeDone"

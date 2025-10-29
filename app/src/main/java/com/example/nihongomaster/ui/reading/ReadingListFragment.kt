@@ -22,16 +22,25 @@ class ReadingListFragment : Fragment() {
     override fun onCreateView(i: LayoutInflater, c: ViewGroup?, s: Bundle?): View {
         _b = FragmentReadingListBinding.inflate(i, c, false); return b.root
     }
-
     override fun onViewCreated(v: View, s: Bundle?) {
         b.topBar.title = getString(R.string.reading)
         b.topBar.inflateMenu(R.menu.menu_home_top)
         b.recycler.layoutManager = LinearLayoutManager(requireContext())
         b.recycler.adapter = adapter
-        vm.categories.observe(viewLifecycleOwner) { adapter.submitList(it) }
+        vm.categories.observe(viewLifecycleOwner) { categories ->
+            android.util.Log.d("ReadingListFragment", "Categories received: ${categories.size}")
+            adapter.submitList(categories)
+        }
+        
+        vm.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            android.util.Log.d("ReadingListFragment", "Loading: $isLoading")
+        }
+        
+        vm.error.observe(viewLifecycleOwner) { error ->
+            if (error.isNotEmpty()) {
+                android.widget.Toast.makeText(requireContext(), error, android.widget.Toast.LENGTH_LONG).show()
+            }
+        }
     }
-
-    override fun onDestroyView() {
-        super.onDestroyView(); _b = null
-    }
+    override fun onDestroyView(){ super.onDestroyView(); _b=null }
 }

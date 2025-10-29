@@ -31,6 +31,5 @@ class VocabCategoryAdapter(
 
     override fun onCreateViewHolder(p: ViewGroup, v: Int): VH =
         VH(ItemVocabCategoryBinding.inflate(LayoutInflater.from(p.context), p, false))
-
     override fun onBindViewHolder(h: VH, i: Int) = h.bind(getItem(i))
 }

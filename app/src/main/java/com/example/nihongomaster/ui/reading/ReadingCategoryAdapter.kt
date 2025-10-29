@@ -30,6 +30,5 @@ class ReadingCategoryAdapter(
 
     override fun onCreateViewHolder(p: ViewGroup, v: Int) =
         VH(ItemReadingCategoryBinding.inflate(LayoutInflater.from(p.context), p, false))
-
     override fun onBindViewHolder(h: VH, i: Int) = h.bind(getItem(i))
 }

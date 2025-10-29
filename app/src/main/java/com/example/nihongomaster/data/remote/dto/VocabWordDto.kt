@@ -36,7 +36,8 @@ data class VocabWordDetailDto(
 )
 
 data class ExampleSentenceDto(
-    val japanese: String, val english: String
+    val japanese: String,
+    val english: String
 )
 
 data class UserProgressDto(

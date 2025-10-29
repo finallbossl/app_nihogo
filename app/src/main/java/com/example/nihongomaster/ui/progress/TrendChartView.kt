@@ -12,15 +12,9 @@ class TrendChartView @JvmOverloads constructor(
 ) : View(c, a) {
 
     var series: List<List<Float>> = emptyList() // nhiều đường
-        set(value) {
-            field = value; invalidate()
-        }
+        set(value) { field = value; invalidate() }
 
-    private val lines = listOf(
-        Paint(Paint.ANTI_ALIAS_FLAG),
-        Paint(Paint.ANTI_ALIAS_FLAG),
-        Paint(Paint.ANTI_ALIAS_FLAG)
-    )
+    private val lines = listOf(Paint(Paint.ANTI_ALIAS_FLAG), Paint(Paint.ANTI_ALIAS_FLAG), Paint(Paint.ANTI_ALIAS_FLAG))
     private val grid = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = 0x22000000; strokeWidth = 1f }
 
     init {
@@ -34,18 +28,17 @@ class TrendChartView @JvmOverloads constructor(
         val h = height.toFloat()
         // lưới
         repeat(4) { i ->
-            val y = h * (i + 1) / 5f
+            val y = h * (i+1) / 5f
             canvas.drawLine(0f, y, w, y, grid)
         }
         if (series.isEmpty()) return
         val maxVal = max(1f, series.flatten().maxOrNull() ?: 1f)
-        val count = series.maxOf { it.size }
-        val stepX = if (count <= 1) w else w / (count - 1)
+        val count  = series.maxOf { it.size }
+        val stepX  = if (count <= 1) w else w / (count - 1)
 
         series.forEachIndexed { idx, s ->
             val p = lines[idx % lines.size]
-            var prevX = 0f;
-            var prevY = h - (s.firstOrNull() ?: 0f) / maxVal * h
+            var prevX = 0f; var prevY = h - (s.firstOrNull() ?: 0f) / maxVal * h
             s.forEachIndexed { i, v ->
                 val x = i * stepX
                 val y = h - (v / maxVal) * h

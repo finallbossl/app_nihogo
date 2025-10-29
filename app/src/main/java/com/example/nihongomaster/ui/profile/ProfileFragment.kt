@@ -68,14 +68,18 @@ class ProfileFragment : Fragment() {
             hint = "Enter your name"
             setPadding(48, 32, 48, 32)
         }
-
+        
         com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Edit Name").setView(editText).setPositiveButton("Save") { _, _ ->
+            .setTitle("Edit Name")
+            .setView(editText)
+            .setPositiveButton("Save") { _, _ ->
                 val newName = editText.text.toString().trim()
                 if (newName.isNotEmpty()) {
                     vm.updateName(newName)
                 }
-            }.setNegativeButton("Cancel", null).show()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
     }
 
     override fun onDestroyView() {

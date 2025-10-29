@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surfaceBg">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_test_header"
+        android:elevation="4dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="📝 Practice Test"
+            app:titleTextColor="@color/white"
+            android:background="@android:color/transparent" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Progress Header -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/white">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <TextView
+                            android:text="🎯"
+                            android:textSize="20sp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/tvProgressLabel"
+                            android:text="Question 1 of 20"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:textColor="@color/brandPrimary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progress"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp"
+                        app:trackCornerRadius="4dp"
+                        app:trackThickness="8dp"
+                        app:trackColor="#E8EAF6"
+                        app:indicatorColor="@color/accuracy_card_bg"
+                        android:progress="5" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Question Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/tvQuestionTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="What does '学校' mean in English?"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:textColor="@color/brandPrimary" />
+
+                    <!-- Option A -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/optA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@android:color/transparent"
+                        app:cardBackgroundColor="#F8F9FA">
+                        <TextView
+                            android:id="@+id/tvA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="A. School"
+                            android:textSize="16sp"
+                            android:drawableStart="@drawable/ic_checklist"
+                            android:drawablePadding="12dp"
+                            android:gravity="center_vertical" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Option B -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/optB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@android:color/transparent"
+                        app:cardBackgroundColor="#F8F9FA">
+                        <TextView
+                            android:id="@+id/tvB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="B. Hospital"
+                            android:textSize="16sp"
+                            android:drawableStart="@drawable/ic_checklist"
+                            android:drawablePadding="12dp"
+                            android:gravity="center_vertical" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Option C -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/optC"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@android:color/transparent"
+                        app:cardBackgroundColor="#F8F9FA">
+                        <TextView
+                            android:id="@+id/tvC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="C. Library"
+                            android:textSize="16sp"
+                            android:drawableStart="@drawable/ic_checklist"
+                            android:drawablePadding="12dp"
+                            android:gravity="center_vertical" />
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Option D -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/optD"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp"
+                        app:strokeWidth="2dp"
+                        app:strokeColor="@android:color/transparent"
+                        app:cardBackgroundColor="#F8F9FA">
+                        <TextView
+                            android:id="@+id/tvD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:text="D. Restaurant"
+                            android:textSize="16sp"
+                            android:drawableStart="@drawable/ic_checklist"
+                            android:drawablePadding="12dp"
+                            android:gravity="center_vertical" />
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Next Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="➡️ Next Question"
+                android:textSize="16sp"
+                android:enabled="false"
+                app:backgroundTint="@color/accuracy_card_bg" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

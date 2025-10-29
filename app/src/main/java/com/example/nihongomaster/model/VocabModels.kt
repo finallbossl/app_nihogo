@@ -10,9 +10,16 @@ data class VocabCategory(
 
 data class VocabWord(
     val id: String,
-    val kanji: String,
-    val hiragana: String,
+    val word: String,
+    val reading: String,
     val meaning: String,
     val level: String,
-    val isFavorite: Boolean = false
-)
+    val isFavorite: Boolean = false,
+    val category: String = "",
+    val audioUrl: String? = null,
+    val imageUrl: String? = null,
+    val isLearned: Boolean = false
+) {
+    val kanji: String get() = word
+    val hiragana: String get() = reading
+}

@@ -20,12 +20,12 @@ class ReadingDetailFragment : Fragment() {
     override fun onViewCreated(v: View, s: Bundle?) {
         b.topBar.title = "Reading Details"
         b.topBar.setNavigationIcon(
-            com.google.android.material.R.drawable.material_ic_keyboard_arrow_left_black_24dp
-        )
+            com.google.android.material.R.drawable.material_ic_keyboard_arrow_left_black_24dp)
         b.topBar.setNavigationOnClickListener { findNavController().navigateUp() }
 
-        val id = arguments?.getString("articleId") ?: "inter_1"
-        vm.load(id)
+        val categoryId = arguments?.getString("categoryId") ?: "beginner"
+        val articleId = arguments?.getString("articleId") ?: "1"
+        vm.load(categoryId, articleId)
 
         vm.detail.observe(viewLifecycleOwner) { d ->
             b.tvTitle.text = d.title
@@ -33,18 +33,25 @@ class ReadingDetailFragment : Fragment() {
             b.tvRomaji.text = d.romajiNotes
             b.vocabContainer.removeAllViews()
             d.vocabNotes.forEach { (jp, en) ->
-                val tv =
-                    com.google.android.material.textview.MaterialTextView(requireContext()).apply {
-                        text = "$jp — $en"
-                        textSize = 14f
-                        setPadding(0, 8, 0, 8)
-                    }
+                val tv = com.google.android.material.textview.MaterialTextView(requireContext()).apply {
+                    text = "$jp — $en"
+                    textSize = 14f
+                    setPadding(0, 8, 0, 8)
+                }
                 b.vocabContainer.addView(tv)
+            }
+        }
+        
+        vm.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            android.util.Log.d("ReadingDetailFragment", "Loading: $isLoading")
+        }
+        
+        vm.error.observe(viewLifecycleOwner) { error ->
+            if (error.isNotEmpty()) {
+                android.widget.Toast.makeText(requireContext(), error, android.widget.Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView(); _b = null
-    }
+    override fun onDestroyView(){ super.onDestroyView(); _b=null }
 }

@@ -1,35 +1,22 @@
 package com.example.nihongomaster.model
 
-data class ListeningExercise(
+data class ListeningLesson(
     val id: String,
+    val categoryId: String,
     val title: String,
+    val level: String,
+    val thumbnailRes: Int?,
+    val audioDurationSec: Int,
     val audioUrl: String? = null,
     val transcript: String? = null,
-    val level: String,
-    val category: String,
-    val duration: Int,
-    val difficulty: String,
-    val thumbnail: String? = null,
-    val description: String,
-    val instructions: String? = null,
-    val questions: List<ListeningQuestion> = emptyList(),
-    val isCompleted: Boolean = false
+    val description: String? = null,
+    val questions: List<com.example.nihongomaster.data.remote.api.QuestionResponse>? = null
 )
 
 data class ListeningQuestion(
-    override val id: String,
-    override val question: String,
-    override val type: String,
-    override val options: List<String>,
-    override val correctAnswer: Int
-) : Question
-
-data class ListeningResult(
-    val id: String? = null,
-    val exerciseId: String,
-    val answers: Map<String, Int>,
-    val timeSpent: Int = 0,
-    val score: Int = 0,
-    val listeningCount: Int = 1,
-    val completedAt: String? = null
+    val id: String,
+    val text: String,
+    val difficulty: String,
+    val options: List<String>,
+    val correctIndex: Int
 )

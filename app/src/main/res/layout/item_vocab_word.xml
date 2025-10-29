@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="120dp"
     android:layout_height="wrap_content"
     android:layout_marginEnd="12dp"
-    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/tvKanji"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学校"
-            android:textColor="@color/brandPrimary"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/brandPrimary"
+            android:text="学校" />
 
         <TextView
             android:id="@+id/tvHiragana"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
+            android:textSize="12sp"
             android:alpha="0.7"
-            android:text="がっこう"
-            android:textSize="12sp" />
+            android:layout_marginTop="2dp"
+            android:text="がっこう" />
 
         <TextView
             android:id="@+id/tvMeaning"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:textSize="11sp"
             android:alpha="0.6"
+            android:layout_marginTop="4dp"
             android:gravity="center"
-            android:text="school"
-            android:textSize="11sp" />
+            android:text="school" />
+
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>

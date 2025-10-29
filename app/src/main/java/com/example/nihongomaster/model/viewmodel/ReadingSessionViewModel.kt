@@ -3,9 +3,13 @@ package com.example.nihongomaster.model.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.nihongomaster.data.repository.ReadingRepository
 import com.example.nihongomaster.model.ReadingArticle
+import kotlinx.coroutines.launch
 
 class ReadingSessionViewModel : ViewModel() {
+    private val repository = ReadingRepository()
     private lateinit var list: List<ReadingArticle>
     private var index = 0
 
@@ -16,17 +20,42 @@ class ReadingSessionViewModel : ViewModel() {
     val total: LiveData<Int> = _total
     private val _pos = MutableLiveData(1)
     val pos: LiveData<Int> = _pos
+    
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+    
+    private val _error = MutableLiveData<String>()
+    val error: LiveData<String> = _error
 
     fun start(categoryId: String) {
-        list = mock(categoryId)
-        _total.value = list.size
-        index = 0
-        _pos.value = 1
-        _current.value = list.firstOrNull()
+        viewModelScope.launch {
+            _isLoading.value = true
+            
+            repository.getReadingArticles(categoryId)
+                .onSuccess { articles ->
+                    android.util.Log.d("ReadingSessionViewModel", "Loaded ${articles.size} articles for category $categoryId")
+                    
+                    if (articles.isNotEmpty()) {
+                        list = articles
+                        _total.value = list.size
+                        index = 0
+                        _pos.value = 1
+                        _current.value = list.firstOrNull()
+                    } else {
+                        _error.value = "Không có bài đọc nào trong danh mục này"
+                    }
+                }
+                .onFailure { exception ->
+                    android.util.Log.e("ReadingSessionViewModel", "Failed to load articles: ${exception.message}")
+                    _error.value = "Không thể tải bài đọc: ${exception.message}"
+                }
+            
+            _isLoading.value = false
+        }
     }
 
     fun previous() {
-        if (index > 0) {
+        if (::list.isInitialized && index > 0) {
             index--
             _pos.value = index + 1
             _current.value = list[index]
@@ -34,7 +63,7 @@ class ReadingSessionViewModel : ViewModel() {
     }
 
     fun next() {
-        if (index < list.lastIndex) {
+        if (::list.isInitialized && index < list.lastIndex) {
             index++
             _pos.value = index + 1
             _current.value = list[index]
@@ -42,31 +71,4 @@ class ReadingSessionViewModel : ViewModel() {
     }
 
     fun currentArticleId(): String? = _current.value?.id
-
-    private fun mock(cat: String): List<ReadingArticle> = when (cat) {
-        "intermediate" -> listOf(
-            ReadingArticle(
-                "inter_1", "intermediate",
-                "中級読解演習 (Intermediate Reading Exercise)",
-                "今日の東京の天気は晴れで、最高気温は25度です。週末は桜が満開になり、多くの人々が花見に出かけるでしょう。日本の文化に触れる良い機会です。",
-                highlight = listOf("天気", "最高気温", "花見")
-            ),
-            ReadingArticle(
-                "inter_2", "intermediate",
-                "日本の朝ごはん",
-                "日本の朝ごはんは、ご飯、味噌汁、焼き魚、漬物などが一般的です。忙しい人はパンやコーヒーだけのこともあります。"
-            )
-        )
-
-        else -> listOf(
-            ReadingArticle(
-                "beg_1", "beginner", "自己紹介",
-                "はじめまして。わたしはアキです。ベトナムから来ました。よろしくお願いします。"
-            ),
-            ReadingArticle(
-                "beg_2", "beginner", "買い物",
-                "スーパーで野菜と果物を買いました。りんごは安くて、とても新鮮でした。"
-            )
-        )
-    }
 }

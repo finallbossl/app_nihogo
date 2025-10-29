@@ -29,6 +29,5 @@ class AchievementAdapter :
 
     override fun onCreateViewHolder(p: ViewGroup, v: Int) =
         VH(ItemAchievementBinding.inflate(LayoutInflater.from(p.context), p, false))
-
     override fun onBindViewHolder(h: VH, i: Int) = h.bind(getItem(i))
 }

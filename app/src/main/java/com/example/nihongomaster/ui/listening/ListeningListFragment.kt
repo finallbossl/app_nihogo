@@ -10,17 +10,21 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nihongomaster.R
 import com.example.nihongomaster.databinding.FragmentListeningListBinding
-import com.example.nihongomaster.model.viewmodel.ListeningViewModel
+import com.example.nihongomaster.model.viewmodel.ListeningListViewModel
 
 class ListeningListFragment : Fragment() {
+
     private var _binding: FragmentListeningListBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: ListeningViewModel by viewModels()
-    private val adapter = ListeningExerciseAdapter { exercise ->
-        val args = Bundle().apply { 
-            putString("exerciseId", exercise.id)
-        }
-        findNavController().navigate(R.id.action_listeningList_to_detail, args)
+    private val viewModel: ListeningListViewModel by viewModels()
+
+    // Adapter hiển thị từng bài nghe
+    private val adapter = ListeningLessonAdapter { lesson ->
+        val args = Bundle().apply { putString("lessonId", lesson.id) }
+        // Điều hướng trực tiếp tới destination id (không phụ thuộc action)
+        findNavController().navigate(R.id.listeningSessionFragment, args)
+        // Hoặc nếu bạn có action trong nav graph:
+        // findNavController().navigate(R.id.action_listeningList_to_session, args)
     }
 
     override fun onCreateView(
@@ -33,30 +37,31 @@ class ListeningListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        
-        setupRecyclerView()
-        setupObservers()
-        setupToolbar()
-        
-        // Load data
-        viewModel.loadExercises()
-    }
+        // Toolbar
+        binding.topBar.title = getString(R.string.listening)
+        binding.topBar.inflateMenu(R.menu.menu_home_top)
+        // Nếu muốn nút back:
+        // binding.topBar.setNavigationIcon(com.google.android.material.R.drawable.material_ic_keyboard_arrow_left_black_24dp)
+        // binding.topBar.setNavigationOnClickListener { findNavController().navigateUp() }
 
-    private fun setupRecyclerView() {
-        binding.recyclerListening.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerListening.adapter = adapter
-    }
+        // RecyclerView
+        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
+        binding.recycler.adapter = adapter
 
-    private fun setupObservers() {
-        viewModel.exercises.observe(viewLifecycleOwner) { exercises ->
-            adapter.submitList(exercises)
+        // Quan sát dữ liệu
+        viewModel.lessons.observe(viewLifecycleOwner) { lessons ->
+            android.util.Log.d("ListeningListFragment", "Lessons received: ${lessons.size}")
+            adapter.submitList(lessons)
         }
-    }
-
-    private fun setupToolbar() {
-        binding.topBar.setNavigationOnClickListener {
-            findNavController().navigateUp()
+        
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            android.util.Log.d("ListeningListFragment", "Loading: $isLoading")
+        }
+        
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            if (error.isNotEmpty()) {
+                android.widget.Toast.makeText(requireContext(), error, android.widget.Toast.LENGTH_LONG).show()
+            }
         }
     }
 

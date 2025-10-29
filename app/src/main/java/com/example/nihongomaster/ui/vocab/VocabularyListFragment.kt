@@ -34,19 +34,31 @@ class VocabularyListFragment : Fragment() {
 
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
         binding.recycler.adapter = adapter
-
-        binding.recyclerFavorites.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        
+        binding.recyclerFavorites.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.recyclerFavorites.adapter = favoritesAdapter
 
-        vm.categories.observe(viewLifecycleOwner) { adapter.submitList(it) }
+        vm.categories.observe(viewLifecycleOwner) { categories ->
+            android.util.Log.d("VocabularyListFragment", "Categories received: ${categories.size}")
+            adapter.submitList(categories)
+        }
+        
         vm.favoriteWords.observe(viewLifecycleOwner) { favorites ->
             binding.cardFavorites.visibility = if (favorites.isEmpty()) View.GONE else View.VISIBLE
             favoritesAdapter.submitList(favorites)
         }
+        
+        vm.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            // Hiển thị loading indicator nếu cần
+            android.util.Log.d("VocabularyListFragment", "Loading: $isLoading")
+        }
+        
+        vm.error.observe(viewLifecycleOwner) { error ->
+            if (error.isNotEmpty()) {
+                android.widget.Toast.makeText(requireContext(), error, android.widget.Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView(); _binding = null
-    }
+    override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }

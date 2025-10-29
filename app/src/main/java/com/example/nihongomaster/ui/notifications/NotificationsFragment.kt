@@ -16,7 +16,7 @@ class NotificationsFragment : Fragment() {
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
     private val viewModel: NotificationsViewModel by viewModels()
-
+    
     private val adapter = NotificationAdapter { notification ->
         // Handle notification click
         viewModel.markAsRead(notification.id)
@@ -24,7 +24,9 @@ class NotificationsFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,7 +34,7 @@ class NotificationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
         setupRecyclerView()
         setupMenu()
         observeViewModel()
@@ -52,12 +54,10 @@ class NotificationsFragment : Fragment() {
                     // TODO: Mark all as read
                     true
                 }
-
                 R.id.action_clear_all -> {
                     viewModel.clearAll()
                     true
                 }
-
                 else -> false
             }
         }
@@ -66,8 +66,7 @@ class NotificationsFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.notifications.observe(viewLifecycleOwner) { notifications ->
             adapter.submitList(notifications)
-            binding.layoutEmpty.visibility =
-                if (notifications.isEmpty()) View.VISIBLE else View.GONE
+            binding.layoutEmpty.visibility = if (notifications.isEmpty()) View.VISIBLE else View.GONE
         }
     }
 

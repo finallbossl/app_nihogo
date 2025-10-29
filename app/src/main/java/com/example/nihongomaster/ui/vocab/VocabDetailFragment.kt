@@ -38,12 +38,11 @@ class VocabDetailFragment : Fragment() {
             // Examples
             binding.examplesContainer.removeAllViews()
             d.examples.forEach {
-                val item =
-                    com.google.android.material.textview.MaterialTextView(requireContext()).apply {
-                        text = "${it.jp}\n${it.en}"
-                        textSize = 14f
-                        setPadding(0, 12, 0, 12)
-                    }
+                val item = com.google.android.material.textview.MaterialTextView(requireContext()).apply {
+                    text = "${it.jp}\n${it.en}"
+                    textSize = 14f
+                    setPadding(0, 12, 0, 12)
+                }
                 binding.examplesContainer.addView(item)
             }
 
@@ -54,8 +53,7 @@ class VocabDetailFragment : Fragment() {
 
         // Favorite state
         vm.isFavorite.observe(viewLifecycleOwner) { isFav ->
-            binding.btnFavorite.text =
-                if (isFav) "💖 Remove from Favorites" else "💖 Add to Favorites"
+            binding.btnFavorite.text = if (isFav) "💖 Remove from Favorites" else "💖 Add to Favorites"
         }
 
         // Actions
@@ -64,7 +62,5 @@ class VocabDetailFragment : Fragment() {
         binding.btnPlayAudio.setOnClickListener { /* TODO: play audio */ }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView(); _binding = null
-    }
+    override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }

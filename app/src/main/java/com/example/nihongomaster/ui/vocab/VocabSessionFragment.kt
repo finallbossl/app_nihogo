@@ -45,12 +45,10 @@ class VocabSessionFragment : Fragment() {
                 binding.tvJp.text = w.kanji
                 binding.tvRomaji.text = w.hiragana
                 binding.tvMeaning.text = w.meaning
-
+                
                 // Update favorite button state
-                val isFav =
-                    com.example.nihongomaster.model.viewmodel.FavoriteManager.isFavorite(w.id)
-                binding.btnFavorite.text =
-                    if (isFav) "❤️ Remove from Favorites" else "💖 Add to Favorites"
+                val isFav = com.example.nihongomaster.model.viewmodel.FavoriteManager.isFavorite(w.id)
+                binding.btnFavorite.text = if (isFav) "❤️ Remove from Favorites" else "💖 Add to Favorites"
             }
         }
 
@@ -62,10 +60,21 @@ class VocabSessionFragment : Fragment() {
         vm.learned.observe(viewLifecycleOwner) { updateProgress() }
         vm.due.observe(viewLifecycleOwner) { updateProgress() }
         vm.total.observe(viewLifecycleOwner) { updateProgress() }
+        
+        vm.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            // Hiển thị loading indicator nếu cần
+            android.util.Log.d("VocabSessionFragment", "Loading: $isLoading")
+        }
+        
+        vm.error.observe(viewLifecycleOwner) { error ->
+            if (error.isNotEmpty()) {
+                android.widget.Toast.makeText(requireContext(), error, android.widget.Toast.LENGTH_LONG).show()
+            }
+        }
 
         // Actions
         binding.btnReveal.setOnClickListener { vm.reveal() }
-        binding.btnKnown.setOnClickListener {
+        binding.btnKnown.setOnClickListener { 
             vm.markKnown()
             // Auto add to favorites when marked as known
             val wordId = vm.currentWordId()
@@ -76,17 +85,14 @@ class VocabSessionFragment : Fragment() {
         binding.btnUnknown.setOnClickListener { vm.markUnknown() }
         binding.btnSkip.setOnClickListener { vm.skip() }
         binding.btnNext.setOnClickListener { vm.skip() }
-
+        
         // Favorite button
         binding.btnFavorite.setOnClickListener {
             val wordId = vm.currentWordId()
             if (wordId != null) {
-                val isFav =
-                    com.example.nihongomaster.model.viewmodel.FavoriteManager.isFavorite(wordId)
+                val isFav = com.example.nihongomaster.model.viewmodel.FavoriteManager.isFavorite(wordId)
                 if (isFav) {
-                    com.example.nihongomaster.model.viewmodel.FavoriteManager.removeFromFavorites(
-                        wordId
-                    )
+                    com.example.nihongomaster.model.viewmodel.FavoriteManager.removeFromFavorites(wordId)
                     binding.btnFavorite.text = "💖 Add to Favorites"
                 } else {
                     com.example.nihongomaster.model.viewmodel.FavoriteManager.addToFavorites(wordId)
@@ -94,6 +100,8 @@ class VocabSessionFragment : Fragment() {
                 }
             }
         }
+
+        // Details functionality removed - integrated into main flow
     }
 
     private fun updateProgress() {

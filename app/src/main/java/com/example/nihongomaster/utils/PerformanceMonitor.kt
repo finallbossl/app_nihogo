@@ -7,10 +7,10 @@ import android.util.Log
 object PerformanceMonitor {
     private const val TAG = "PerformanceMonitor"
     private const val ANR_TIMEOUT = 5000L
-
+    
     private val mainHandler = Handler(Looper.getMainLooper())
     private var anrWatchdog: Runnable? = null
-
+    
     fun startAnrWatchdog() {
         stopAnrWatchdog()
         anrWatchdog = Runnable {
@@ -18,12 +18,12 @@ object PerformanceMonitor {
         }
         mainHandler.postDelayed(anrWatchdog!!, ANR_TIMEOUT)
     }
-
+    
     fun stopAnrWatchdog() {
         anrWatchdog?.let { mainHandler.removeCallbacks(it) }
         anrWatchdog = null
     }
-
+    
     fun resetAnrWatchdog() {
         stopAnrWatchdog()
         startAnrWatchdog()

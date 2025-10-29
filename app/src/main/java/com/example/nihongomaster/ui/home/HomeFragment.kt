@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.nihongomaster.R
 import com.example.nihongomaster.databinding.FragmentHomeBinding
 import androidx.navigation.fragment.findNavController
+import android.util.Log
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -21,58 +22,87 @@ class HomeFragment : Fragment() {
             "vocab" -> findNavController().navigate(R.id.action_home_to_vocabularyList)
             "reading" -> findNavController().navigate(R.id.action_home_to_readingList)
             "listening" -> findNavController().navigate(R.id.action_home_to_listeningList)
-//            "tests" -> findNavController().navigate(R.id.action_home_to_testList)
+            "tests" -> findNavController().navigate(R.id.action_home_to_testList)
             "progress" -> findNavController().navigate(R.id.progressDashboardFragment)
+
+
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        
+        Log.d("HomeFragment", "onViewCreated called")
+        
+        setupTopBar()
+        setupRecyclerView()
+        observeViewModel()
+    }
+    
+    private fun setupTopBar() {
         binding.topBar.setOnMenuItemClickListener { item ->
-            android.util.Log.d("HomeFragment", "Menu item clicked: ${item.itemId}")
             when (item.itemId) {
                 R.id.action_profile -> {
-                    android.util.Log.d("HomeFragment", "Profile clicked")
-                    try {
-                        findNavController().navigate(R.id.profileFragment)
-                    } catch (e: Exception) {
-                        android.util.Log.e("HomeFragment", "Navigation error: ${e.message}")
-                    }
+                    navigateSafely(R.id.profileFragment)
                     true
                 }
-
                 R.id.action_notifications -> {
-                    android.util.Log.d("HomeFragment", "Notifications clicked")
-                    try {
-                        findNavController().navigate(R.id.notificationsFragment)
-                    } catch (e: Exception) {
-                        android.util.Log.e("HomeFragment", "Navigation error: ${e.message}")
-                    }
+                    navigateSafely(R.id.notificationsFragment)
                     true
                 }
-
-                else -> {
-                    android.util.Log.d("HomeFragment", "Unknown menu item: ${item.itemId}")
-                    false
-                }
+                else -> false
             }
         }
-
-        binding.recycler.layoutManager = LinearLayoutManager(requireContext())
-        binding.recycler.adapter = adapter
-        vm.items.observe(viewLifecycleOwner) { adapter.submitList(it) }
+    }
+    
+    private fun setupRecyclerView() {
+        binding.recycler.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = this@HomeFragment.adapter
+            setHasFixedSize(true)
+        }
+    }
+    
+    private fun observeViewModel() {
+        vm.items.observe(viewLifecycleOwner) { items ->
+            Log.d("HomeFragment", "Items received: ${items?.size ?: 0}")
+            if (items != null && items.isNotEmpty()) {
+                adapter.submitList(items)
+                Log.d("HomeFragment", "Submitted ${items.size} items to adapter")
+            } else {
+                Log.w("HomeFragment", "Items is null or empty")
+            }
+        }
+        
+        vm.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            Log.d("HomeFragment", "Loading: $isLoading")
+        }
+        
+        vm.error.observe(viewLifecycleOwner) { error ->
+            if (error.isNotEmpty()) {
+                Log.w("HomeFragment", "Error: $error")
+            }
+        }
+    }
+    
+    private fun navigateSafely(destinationId: Int) {
+        try {
+            if (isAdded && !isDetached) {
+                findNavController().navigate(destinationId)
+            }
+        } catch (e: Exception) {
+            Log.e("HomeFragment", "Navigation error to $destinationId: ${e.message}")
+        }
     }
 }
