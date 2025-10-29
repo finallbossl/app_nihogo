@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import com.example.nihongomaster.model.ReadingCategory
 
 class ReadingListViewModel : ViewModel() {
-    private val _cats = MutableLiveData<List<ReadingCategory>>()
-    val categories: LiveData<List<ReadingCategory>> = _cats
+    private val _categoriesInternal = MutableLiveData<List<ReadingCategory>>()
+    val categories: LiveData<List<ReadingCategory>> = _categoriesInternal
 
     init {
-        _cats.value = listOf(
+        _categoriesInternal.value = listOf(
             ReadingCategory("beginner", "📚 Beginner Stories", "Simple daily life stories", 0.65f),
             ReadingCategory("intermediate", "📰 News Articles", "Current events and topics", 0.35f),
             ReadingCategory(
