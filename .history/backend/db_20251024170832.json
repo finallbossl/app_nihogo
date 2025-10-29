@@ -1,0 +1,223 @@
+{
+  "users": [],
+  "refreshTokens": [],
+  "readingArticles": [
+    {
+      "id": "article-001",
+      "title": "Konnichiwa - Lời chào đầu tiên",
+      "content": "こんにちは (Konnichiwa) là lời chào phổ biến nhất trong tiếng Nhật. Từ này được sử dụng từ buổi sáng muộn đến chiều tối. Khi gặp ai đó lần đầu, bạn có thể nói \"Hajimemashite\" (はじめまして) có nghĩa là \"Rất vui được gặp bạn\". Trong văn hóa Nhật Bản, việc chào hỏi lịch sự rất quan trọng và thể hiện sự tôn trọng đối với người khác.",
+      "level": "N5",
+      "category": "Giao tiếp cơ bản",
+      "estimatedTime": 5,
+      "difficulty": "Beginner",
+      "thumbnail": "https://example.com/thumb1.jpg",
+      "questions": [
+        {
+          "id": "q1",
+          "question": "Konnichiwa được sử dụng vào thời gian nào trong ngày?",
+          "type": "multiple-choice",
+          "options": [
+            "Chỉ buổi sáng",
+            "Từ sáng muộn đến chiều tối", 
+            "Chỉ buổi tối",
+            "Cả ngày"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": "q2", 
+          "question": "Hajimemashite có nghĩa là gì?",
+          "type": "multiple-choice",
+          "options": [
+            "Xin chào",
+            "Tạm biệt",
+            "Rất vui được gặp bạn",
+            "Cảm ơn"
+          ],
+          "correctAnswer": 2
+        }
+      ]
+    },
+    {
+      "id": "article-002",
+      "title": "Gia đình trong văn hóa Nhật",
+      "content": "Gia đình (家族 - Kazoku) đóng vai trò rất quan trọng trong xã hội Nhật Bản. Các thành viên gia đình có những cách gọi riêng: お父さん (Otousan) - bố, お母さん (Okaasan) - mẹ, 兄 (Ani) - anh trai, 姉 (Ane) - chị gái. Trong gia đình truyền thống Nhật Bản, người con trai cả thường có trách nhiệm chăm sóc cha mẹ già và kế thừa gia nghiệp.",
+      "level": "N4", 
+      "category": "Văn hóa xã hội",
+      "estimatedTime": 8,
+      "difficulty": "Intermediate",
+      "thumbnail": "https://example.com/thumb2.jpg",
+      "questions": [
+        {
+          "id": "q3",
+          "question": "Kazoku có nghĩa là gì?",
+          "type": "multiple-choice", 
+          "options": [
+            "Bạn bè",
+            "Gia đình", 
+            "Đồng nghiệp",
+            "Hàng xóm"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": "q4",
+          "question": "Theo truyền thống, ai có trách nhiệm chăm sóc cha mẹ già?",
+          "type": "multiple-choice",
+          "options": [
+            "Con gái cả",
+            "Con trai út", 
+            "Con trai cả",
+            "Tất cả các con"
+          ],
+          "correctAnswer": 2
+        }
+      ]
+    }
+  ],
+  "readingResults": [],
+  "listeningExercises": [
+    {
+      "id": "listening-001",
+      "title": "Tự giới thiệu cơ bản",
+      "audioUrl": "https://example.com/audio/intro-basic.mp3",
+      "transcript": "はじめまして。わたしは田中です。日本人です。東京に住んでいます。学生です。よろしくお願いします。",
+      "level": "N5",
+      "category": "Giao tiếp",
+      "duration": 15,
+      "difficulty": "Beginner",
+      "thumbnail": "https://example.com/listening-thumb1.jpg",
+      "description": "Luyện nghe đoạn hội thoại tự giới thiệu đơn giản",
+      "instructions": "Nghe đoạn audio và trả lời các câu hỏi dưới đây. Bạn có thể nghe lại tối đa 3 lần.",
+      "questions": [
+        {
+          "id": "l-q1",
+          "question": "Người nói tên gì?",
+          "type": "multiple-choice",
+          "options": [
+            "Sato",
+            "Tanaka",
+            "Yamada",
+            "Suzuki"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": "l-q2",
+          "question": "Người nói sống ở đâu?",
+          "type": "multiple-choice",
+          "options": [
+            "Osaka",
+            "Kyoto",
+            "Tokyo",
+            "Nagoya"
+          ],
+          "correctAnswer": 2
+        },
+        {
+          "id": "l-q3",
+          "question": "Nghề nghiệp của người nói là gì?",
+          "type": "multiple-choice",
+          "options": [
+            "Nhân viên văn phòng",
+            "Giáo viên",
+            "Học sinh/Sinh viên",
+            "Bác sĩ"
+          ],
+          "correctAnswer": 2
+        }
+      ]
+    },
+    {
+      "id": "listening-002", 
+      "title": "Hỏi đường đến ga tàu",
+      "audioUrl": "https://example.com/audio/directions-station.mp3",
+      "transcript": "A: すみません、駅はどこですか。B: 駅ですか。まっすぐ行って、交差点を右に曲がってください。A: ありがとうございます。B: どういたしまして。",
+      "level": "N4",
+      "category": "Giao thông",
+      "duration": 20,
+      "difficulty": "Intermediate", 
+      "thumbnail": "https://example.com/listening-thumb2.jpg",
+      "description": "Luyện nghe hội thoại hỏi đường và chỉ đường",
+      "instructions": "Nghe đoạn hội thoại giữa hai người và trả lời các câu hỏi. Chú ý đến hướng dẫn chỉ đường.",
+      "questions": [
+        {
+          "id": "l-q4",
+          "question": "Người A hỏi gì?",
+          "type": "multiple-choice",
+          "options": [
+            "Hỏi giờ",
+            "Hỏi đường đến ga tàu",
+            "Hỏi giá vé",
+            "Hỏi tên đường"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": "l-q5",
+          "question": "Người B hướng dẫn đi như thế nào?",
+          "type": "multiple-choice", 
+          "options": [
+            "Đi thẳng rồi rẽ trái",
+            "Đi thẳng rồi rẽ phải tại ngã tư",
+            "Quay lại rồi đi thẳng",
+            "Rẽ trái ngay"
+          ],
+          "correctAnswer": 1
+        }
+      ]
+    },
+    {
+      "id": "listening-003",
+      "title": "Mua sắm tại cửa hàng tiện lợi",
+      "audioUrl": "https://example.com/audio/convenience-store.mp3", 
+      "transcript": "A: いらっしゃいませ。B: パンと牛乳をください。A: はい。全部で350円です。B: はい、500円です。A: 150円のお釣りです。ありがとうございました。",
+      "level": "N4",
+      "category": "Mua sắm",
+      "duration": 18,
+      "difficulty": "Intermediate",
+      "thumbnail": "https://example.com/listening-thumb3.jpg",
+      "description": "Hội thoại mua sắm cơ bản tại konbini",
+      "instructions": "Nghe cuộc hội thoại mua sắm và trả lời câu hỏi về số tiền và sản phẩm.",
+      "questions": [
+        {
+          "id": "l-q6",
+          "question": "Khách hàng mua gì?",
+          "type": "multiple-choice",
+          "options": [
+            "Bánh và nước",
+            "Bánh mì và sữa",
+            "Cơm và trà",
+            "Kẹo và cà phê"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": "l-q7",
+          "question": "Tổng số tiền là bao nhiêu?",
+          "type": "multiple-choice",
+          "options": [
+            "300 yên",
+            "350 yên", 
+            "400 yên",
+            "500 yên"
+          ],
+          "correctAnswer": 1
+        },
+        {
+          "id": "l-q8",
+          "question": "Số tiền thối lại là bao nhiêu?",
+          "type": "multiple-choice",
+          "options": [
+            "100 yên",
+            "150 yên",
+            "200 yên", 
+            "250 yên"
+          ],
+          "correctAnswer": 1
+        }
+      ]
+    }
+  ],
+  "listeningResults": []
+}
